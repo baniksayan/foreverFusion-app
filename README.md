@@ -13,7 +13,8 @@ This project is part of my **final-year college submission**.
 ---
 
 ## Screenshots
-*(UI screenshots will be added here once completed.)*  
+### Home UI
+![Home UI](assets/screenshots/home_ui.png)
 
 ---
 
