@@ -6,31 +6,41 @@ This project is part of my **final-year college submission**.
 ---
 
 ## Project Progress
-- **Figma UI Design** – Ongoing
-- **Flutter UI Development** – Not started yet
-- **Backend Integration (PHP & MySQL)** – Not started yet
+- **Figma UI Design** – Ongoing  
+- **Flutter UI Development** – Not started yet  
+- **Backend Integration (PHP & MySQL)** – Not started yet  
 
 ---
 
 ## Screenshots
-*(UI screenshots will be added here once completed.)*
+*(UI screenshots will be added here once completed.)*  
 
 ---
 
 ## Planned Features
-- Wedding Venues, Photographers, Makeup Artists, etc.
-- Smooth Animations & Intuitive UI
+- Search & book wedding venues, photographers, makeup artists, etc.  
+- Smooth animations & intuitive UI  
+- Secure booking & user authentication  
 
 ---
 
 ## Tech Stack
-- **Flutter** – Frontend
-- **PHP** – Backend (for booking & data management)
-- **MySQL** – Database
+- **Flutter** – Frontend  
+- **PHP** – Backend (for booking & data management)  
+- **MySQL** – Database  
 
 ---
 
-## How to Run This Project
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/baniksayan/foreverFusion-app.git
+## How to Download & Run on Your PC/Mac
+
+### **Clone the Repository Using Personal Access Token (PAT)**  
+Since GitHub removed password authentication, you need to use a **Personal Access Token (PAT)**.
+
+#### **Personal Access Token (PAT)**
+1. Copy the **Generated Token**:   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
+
+
+#### **Clone the Repository Using Your PAT**
+
+```bash
+git clone https://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@github.com/baniksayan/foreverFusion-app.git
