@@ -15,6 +15,7 @@ This project is part of my **final-year college submission**.
 ## Screenshots
 ### Home UI
 ![Home UI](assets/screenshots/home_ui.png)
+![Pricing and Seller Section UI](assets/screenshots/pricing_and_seller_section.png)
 
 ---
 
