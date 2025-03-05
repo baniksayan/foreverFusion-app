@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../server_handler.dart';
+import './sellers_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,14 +12,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool showLoadingSellers = false; // Fixed variable type
+  bool showLoadingSellers = false;
   Timer? _timer;
+
+  void getSellers() {
+    ServerHandler()
+        .getSellers()
+        .then((value) => Navigator.of(context).popAndPushNamed(SellersScreen.routeName))
+        // ignore: avoid_print
+        .catchError((e) => print("Error fetching sellers: $e"));
+  }
 
   @override
   void initState() {
     super.initState();
 
     _timer = Timer(const Duration(seconds: 3), () {
+      getSellers(); // Call API function
       setState(() {
         showLoadingSellers = true;
       });
@@ -48,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // App Name
+            // Title
             Text(
               "ForeverFusion",
               style: GoogleFonts.pacifico(
@@ -57,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
 
-            // Loader & Loading Text
+            // Loading animation
             if (showLoadingSellers) ...[
               const SizedBox(height: 20), // Space above loader
               SizedBox(

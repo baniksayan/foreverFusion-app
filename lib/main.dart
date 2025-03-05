@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/splash_screen.dart'; // Importing SplashScreen
-
+import 'screens/sellers_screen.dart';
 void main() => runApp(const ForeverFusionApp());
 
 class ForeverFusionApp extends StatelessWidget {
@@ -15,7 +15,10 @@ class ForeverFusionApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(), // Change to SplashScreen
+      home: const SplashScreen(), // Change to SplashScreen
+      routes: {
+        SellersScreen.routeName: (_) => const SellersScreen(), // Add this line
+      },
     );
   }
 }
