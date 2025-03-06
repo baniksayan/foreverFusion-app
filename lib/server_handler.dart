@@ -3,7 +3,9 @@ import 'package:http/http.dart' as http;
 import './models/seller.dart';
 
 class ServerHandler {
-  final String _baseUrl = "http://127.0.0.1/forever_fusion/api/gen/sellers.php"; 
+  final String _baseUrl = "http://127.0.0.1/forever_fusion/api/gen/sellers.php";
+  //for android: 10.0.2.2
+  //for iOs: 127.0.0.1
 
   // Get the list of sellers
   Future<List<Seller>> getSellers() async {

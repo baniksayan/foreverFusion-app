@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void getSellers() {
     ServerHandler()
         .getSellers()
-        .then((value) => Navigator.of(context).pushReplacementNamed(SellersScreen.routeName))
+        .then((value) => Navigator.of(context).pushReplacementNamed(SellersScreen.routeName, arguments: value))
         .catchError((e) => print("Error fetching sellers: $e"));
   }
 
