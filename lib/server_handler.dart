@@ -1,53 +1,28 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-
 import './models/seller.dart';
-// import './models/product.dart';
 
 class ServerHandler {
-  final String _baseUrl = "http://127.0.0.1/forever_fusion/api/gen/sellers.php";
+  final String _baseUrl = "http://127.0.0.1/forever_fusion/api/gen/sellers.php"; 
 
-  // get the list of sellers
+  // Get the list of sellers
   Future<List<Seller>> getSellers() async {
     try {
       List<Seller> sellers = [];
+      final response = await http.get(Uri.parse('$_baseUrl/sellers.php'));
 
-      http.Response response =
-          await http.get(Uri.parse('$_baseUrl/gen/sellers'));
-
-      List sellersList = (json.decode(response.body))['sellers'];
-
-      for (Map m in sellersList) {
-        sellers.add(Seller.fromMap(m));
+      if (response.statusCode == 200) {
+        List sellersList = (json.decode(response.body))['sellers'];
+        for (Map m in sellersList) {
+          sellers.add(Seller.fromMap(m));
+        }
+      } else {
+        throw Exception('Failed to load sellers');
       }
 
       return sellers;
     } catch (e) {
-      // ignore: avoid_print
-      print('Server Handler : error : ' + e.toString());
-      rethrow;
-    }
-  }
-
-  /// getting list of products per seller
-  Future<List<Product>> getProductsPerSeller(int sellerId) async {
-    try {
-      List<Product> products = [];
-
-      http.Response response = await http
-          .get(Uri.parse('$_baseUrl/gen/products?seller_id=$sellerId'));
-
-      List productsList = (json.decode(response.body))['products'];
-
-      for (Map m in productsList) {
-        products.add(Product.fromMap(m));
-      }
-
-      return products;
-    } catch (e) {
-      // ignore: avoid_print
-      print('Server Handler : error : ' + e.toString());
+      print('Server Handler : error : $e');
       rethrow;
     }
   }

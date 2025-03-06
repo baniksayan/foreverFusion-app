@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'screens/splash_screen.dart'; // Importing SplashScreen
 import 'screens/sellers_screen.dart';
+
 void main() => runApp(const ForeverFusionApp());
 
 class ForeverFusionApp extends StatelessWidget {

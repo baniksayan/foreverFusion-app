@@ -18,8 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void getSellers() {
     ServerHandler()
         .getSellers()
-        .then((value) => Navigator.of(context).popAndPushNamed(SellersScreen.routeName))
-        // ignore: avoid_print
+        .then((value) => Navigator.of(context).pushReplacementNamed(SellersScreen.routeName))
         .catchError((e) => print("Error fetching sellers: $e"));
   }
 
@@ -28,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     _timer = Timer(const Duration(seconds: 3), () {
-      getSellers(); // Call API function
+      getSellers();
       setState(() {
         showLoadingSellers = true;
       });
@@ -59,32 +58,29 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Title
             Text(
               "ForeverFusion",
               style: GoogleFonts.pacifico(
-                color: Color(0xffC599B6), // Light purple shade for text
+                color: Color(0xffC599B6),
                 fontSize: 32,
               ),
             ),
-
-            // Loading animation
             if (showLoadingSellers) ...[
-              const SizedBox(height: 20), // Space above loader
-              SizedBox(
-                height: 30, // Proper loader size
+              const SizedBox(height: 20),
+              const SizedBox(
+                height: 30,
                 width: 30,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Color(0xffC599B6)), 
-                  strokeWidth: 2, // Thinner stroke
+                  strokeWidth: 2,
                 ),
               ),
-              const SizedBox(height: 10), // Space between loader & text
+              const SizedBox(height: 10),
               Text(
                 'Loading...', 
                 style: GoogleFonts.poppins(
                   color: Color(0xffC599B6), 
-                  fontSize: 16, // Proper text size
+                  fontSize: 16,
                 ),
               ),
             ],

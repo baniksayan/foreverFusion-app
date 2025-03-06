@@ -6,13 +6,12 @@ class Seller {
   String? address;
   String? description;
 
-  // Corrected constructor
   Seller.fromMap(Map<dynamic, dynamic> map) {
-    id = int.tryParse(map['id'].toString()) ?? 0; // Safe parsing
+    id = int.tryParse(map['id'].toString()) ?? 0; 
     name = map['name'];
-    email = map.containsKey('email') ? map['email'] : null; // Check if exists
+    email = map.containsKey('email') ? map['email'] : null;
     image = map['image'];
     address = map['address'];
-    description = map.containsKey('description') ? map['description'] : null; // Check if exists
+    description = map.containsKey('description') ? map['description'] : null;
   }
 }
